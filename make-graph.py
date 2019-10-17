@@ -2,6 +2,7 @@ import os
 import networkx as nx
 import sys
 import json
+import pydot
 
 
 DATA_ROOT = "data"
@@ -28,10 +29,13 @@ if __name__ == "__main__":
 
     data_path = os.path.join(DATA_ROOT, data_file_name)
 
+    print("Loading {}...".format(data_file_name))
     with open(data_path, "r") as data_fp:
         data = json.load(data_fp)
 
+    print("Making graph...")
     graph = make_graph(data)
 
-    nx.write_gexf(graph, os.path.join(GRAPH_ROOT, data_file_name + ".gexf"))
+    print("Writing dot file...")
+    nx.drawing.nx_pydot.write_dot(graph, os.path.join(GRAPH_ROOT, data_file_name + ".dot"))
 
