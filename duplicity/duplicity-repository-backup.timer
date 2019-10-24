@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer to perform a duplicity incremental backup of the arch repositories
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
