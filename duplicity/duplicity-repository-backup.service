@@ -9,6 +9,7 @@ ExecStart=/usr/bin/docker run \
 -m 8g \
 -v /srv/arch-mmirror:/repo \
 -v /home/aditya:/aditya-home \
+--rm \
 duplicity-repository-backup
 
 [Install]
