@@ -1,3 +1,3 @@
 #!/bin/bash
 
-duplicity incremental --allow-source-mismatch --no-encryption /repo/ file://aditya-home/duplicity-backups/
+duplicity incremental --allow-source-mismatch --no-encryption /repo/ file://aditya-home/duplicity-repo-backup/
