@@ -23,7 +23,7 @@ def make_graph(data):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        data_file_name = "data_2019-10-16.json"
+        data_file_name = "data_2019-10-22_pkg.json"
     else:
         data_file_name = sys.argv[1]
 
@@ -36,6 +36,9 @@ if __name__ == "__main__":
     print("Making graph...")
     graph = make_graph(data)
 
-    print("Writing dot file...")
-    nx.drawing.nx_pydot.write_dot(graph, os.path.join(GRAPH_ROOT, data_file_name + ".dot"))
+    print("Calculating PageRank...")
+    pagerank = nx.pagerank(graph)
+
+    with open("pagerank_" + data_file_name, "w+") as fp:
+        json.dump(pagerank, fp)
 
