@@ -7,6 +7,7 @@ import pydot
 
 DATA_ROOT = "data"
 GRAPH_ROOT = "graphs"
+PAGERANK_ROOT = "pagerank"
 
 
 def make_graph(data):
@@ -39,6 +40,6 @@ if __name__ == "__main__":
     print("Calculating PageRank...")
     pagerank = nx.pagerank(graph)
 
-    with open("pagerank_" + data_file_name, "w+") as fp:
+    with open(os.path.join(PAGERANK_ROOT, "pagerank_" + data_file_name), "w+") as fp:
         json.dump(pagerank, fp)
 
