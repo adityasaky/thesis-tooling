@@ -1,4 +1,4 @@
-FROM archlinux/base
+FROM archlinux:latest
 
 LABEL maintainer="Aditya Saky <aditya@saky.in>"
 
