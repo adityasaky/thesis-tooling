@@ -3,11 +3,14 @@ import networkx as nx
 import sys
 import json
 import pydot
+import requests
+import time
 
 
 DATA_ROOT = "data"
 GRAPH_ROOT = "graphs"
 PAGERANK_ROOT = "pagerank"
+PERSONALIZATION_ROOT = "personalization"
 
 
 def make_graph(data):
@@ -37,8 +40,13 @@ if __name__ == "__main__":
     print("Making graph...")
     graph = make_graph(data)
 
+    personalization_file_path = os.path.join(PERSONALIZATION_ROOT, "personalization_" + data_file_name)
+    print("Loading {}...".format(personalization_file_path))
+    with open(personalization_file_path) as fp:
+        personalization = json.load(fp)
+
     print("Calculating PageRank...")
-    pagerank = nx.pagerank(graph)
+    pagerank = nx.pagerank(graph, personalization=personalization)
 
     with open(os.path.join(PAGERANK_ROOT, "pagerank_" + data_file_name), "w+") as fp:
         json.dump(pagerank, fp)
