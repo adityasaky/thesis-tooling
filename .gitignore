@@ -1,3 +1,5 @@
 env
-graphs
+graphs*
 pagerank*
+personalization*
+not-in-data*
