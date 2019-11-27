@@ -1,3 +1,7 @@
+"""
+This file checks if packages are signed and dumps it to data/
+"""
+
 import os
 import sys
 import datetime

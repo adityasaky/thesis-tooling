@@ -1,3 +1,7 @@
+"""
+This file calculates the popularity metric and dumps it to data/
+"""
+
 import requests
 import time
 import sys
@@ -22,16 +26,16 @@ def list_all_packages(data):
 def calculate_and_dump_weights(data, data_file_name):
 
     def _dump_weights():
-        with open(personalization_path, "w") as fp:
+        with open(pkgstats_path, "w") as fp:
             json.dump(weights, fp)
 
-    personalization_path = os.path.join(PERSONALIZATION_ROOT, "personalization_" + data_file_name)
+    pkgstats_path = os.path.join(DATA_ROOT, "pkgstats_" + data_file_name)
     url = "https://pkgstats.archlinux.de/api/packages/{}"
 
     all_packages = list_all_packages(data)
 
-    if os.path.exists(personalization_path):
-        with open(personalization_path) as fp:
+    if os.path.exists(pkgstats_path):
+        with open(pkgstats_path) as fp:
             weights = json.load(fp)
     else:
         weights = {}
@@ -60,7 +64,7 @@ def calculate_and_dump_weights(data, data_file_name):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        data_file_name = "data_2019-10-22_pkg.json"
+        data_file_name = "data_2019-11-27_pkg.json"
     else:
         data_file_name = sys.argv[1]
 
