@@ -6,6 +6,12 @@ DATA_ROOT = "data"
 PERSONALIZATION_ROOT = "personalization"
 
 
+score_weights = {
+    "popularity": 0.75,
+    "package_signed": 0.25
+}
+
+
 def main():
     data_file_name = "data_2019-11-27_pkg.json"
     pkgstats_file = os.path.join(DATA_ROOT, "pkgstats_" + data_file_name)
@@ -35,6 +41,7 @@ def main():
         i += 1
         if package in personalization:
             continue
+        score = 0.0
         popularity = pkgstats.get(package)
         if popularity is None:
             popularity = 0.001
@@ -47,7 +54,8 @@ def main():
         else:
             package_signed = 50.0
 
-        score = (popularity + package_signed) / 2
+        score += popularity * score_weights["popularity"]
+        score += package_signed * score_weights["package_signed"]
 
         personalization[package] = score
 
