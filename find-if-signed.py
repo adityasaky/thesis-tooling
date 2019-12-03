@@ -48,7 +48,7 @@ def main():
             #     pkgbuild_lines = fp.readlines()
 
             if "validpgpkeys" in pkgbuild:
-                if ".sig" in pkgbuild or ".asc" in pkgbuild or "signed" in pkgbuild:
+                if ".sig" in pkgbuild or ".asc" in pkgbuild or "sign" in pkgbuild:
                     # FIXME: makes a massive assumption that the strings can only occur for signatures
                     # example: "ascii" will trigger this but hopefully we don't have a bunch of
                     # validpgpkeys without actually having signatures :/
