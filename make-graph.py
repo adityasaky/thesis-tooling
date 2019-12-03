@@ -40,6 +40,9 @@ if __name__ == "__main__":
     print("Making graph...")
     graph = make_graph(data)
 
+    print("Writing graph...")
+    nx.write_gexf(graph, os.path.join(GRAPH_ROOT, data_file_name))
+
     personalization_file_path = os.path.join(PERSONALIZATION_ROOT, "personalization_" + data_file_name)
     print("Loading {}...".format(personalization_file_path))
     with open(personalization_file_path) as fp:
