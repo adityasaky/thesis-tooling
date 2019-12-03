@@ -27,6 +27,8 @@ if __name__ == "__main__":
     else:
         data_file_name = sys.argv[1]
 
+    personalization_file_name = "personalization_data_2019-11-27_pkg.json"
+
     data_path = os.path.join(DATA_ROOT, data_file_name)
 
     print("Loading {}...".format(data_file_name))
@@ -37,7 +39,7 @@ if __name__ == "__main__":
     graph = make_graph(data)
 
     personalization_file_path = os.path.join(
-        PERSONALIZATION_ROOT, "personalization_" + data_file_name)
+        PERSONALIZATION_ROOT, personalization_file_name)
     print("Loading {}...".format(personalization_file_path))
     with open(personalization_file_path) as fp:
         personalization = json.load(fp)
