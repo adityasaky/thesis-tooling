@@ -7,8 +7,8 @@ PERSONALIZATION_ROOT = "personalization"
 
 
 score_weights = {
-    "popularity": 0.75,
-    "package_signed": 0.25
+    "popularity": 0.5,
+    "package_signed": 0.5
 }
 
 
@@ -16,7 +16,7 @@ def main():
     data_file_name = "data_2019-11-27_pkg.json"
     pkgstats_file = os.path.join(DATA_ROOT, "pkgstats_" + data_file_name)
     data_file = os.path.join(DATA_ROOT, data_file_name)
-    signed_check_file = os.path.join(DATA_ROOT, "package-signed-check_2019-11-26.json")
+    signed_check_file = os.path.join(DATA_ROOT, "package-signed-check_2019-12-3.json")
 
     personalization_file = os.path.join(PERSONALIZATION_ROOT, "personalization_" + data_file_name)
 
@@ -56,6 +56,9 @@ def main():
 
         score += popularity * score_weights["popularity"]
         score += package_signed * score_weights["package_signed"]
+
+        if score == 0.0:
+            score = 0.001
 
         personalization[package] = score
 
