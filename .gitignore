@@ -3,4 +3,5 @@ graphs*
 personalization*
 not-in-data*
 log*
+*__pycache__*
 *.egg-info/
