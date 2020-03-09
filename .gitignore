@@ -3,3 +3,4 @@ graphs*
 personalization*
 not-in-data*
 log*
+*.egg-info/
