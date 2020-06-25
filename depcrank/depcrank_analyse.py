@@ -6,7 +6,7 @@ FIXME: insert program metadata
 
 import click
 import json
-from pacrank.analyse import calculate_average_consumers
+from depcrank.analyse import calculate_average_consumers
 
 
 @click.command()

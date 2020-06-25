@@ -5,7 +5,7 @@ FIXME: insert program metadata
 
 import click
 import json
-from pacrank.rank import calculate_pagerank, calculate_transitive_indegree
+from depcrank.rank import calculate_pagerank, calculate_transitive_indegree
 
 
 @click.command()

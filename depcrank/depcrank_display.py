@@ -6,7 +6,7 @@ FIXME: insert program metadata
 
 import click
 import json
-from pacrank.display import find_single_rank, find_top_ranks
+from depcrank.display import find_single_rank, find_top_ranks
 
 
 DEFAULT_RANKS = "1-30"

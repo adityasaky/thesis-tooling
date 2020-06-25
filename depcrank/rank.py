@@ -3,7 +3,7 @@ FIXME: insert program metadata
 """
 
 import networkx as nx
-from pacrank.utils import make_graph
+from depcrank.utils import make_graph
 
 
 def calculate_pagerank(input_data, personalization):
