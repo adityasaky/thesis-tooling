@@ -5,3 +5,5 @@ not-in-data*
 log*
 *__pycache__*
 *.egg-info/
+build/
+dist/
