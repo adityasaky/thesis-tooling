@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 
-long_description = "thesis-tooling"
+long_description = "Minimal CLI / library to handle dependency information for NYU SSL experiments"
 
 setup(
     name="pacrank",
     version="0.1.0",
-    author="Aditya Saky",
+    author="Aditya Sirish",
     author_email="aditya.sirish@nyu.edu",
     description=long_description,
     long_description=long_description,
